@@ -7,5 +7,3 @@ def recursion_function(num):
     print num
     # call itself
     recursion_function(num - 1)
-
-recursion_function(5)

@@ -23,24 +23,22 @@ class Solution(object):
         """Find if needle in haystack."""
         # Edge
         if needle is None:
-            return -1 
+            return -1
         if haystack is None:
             return -1
         m = len(haystack)
-        n = len(needle) 
+        n = len(needle)
         if m < n:
             return -1
         if m == 0 or n == 0:
-            return 0 
+            return 0
 
-        # sliding window witdth
-        for i in range(m + n - 1):
-            for j in range(n):
-                if haystack[i + j] != needle[j]:
-                    break
-                if j == n - 1:
-                    return i
+        # Only 1 loop but compare sub-string
+        for i in range(m - n + 1):
+            if haystack[i:i + n] == needle:
+                return i
         return -1
+
 
 #test case
 print "TEST:"
